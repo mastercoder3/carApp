@@ -3,22 +3,37 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { DashboardPage } from '../pages/dashboard/dashboard';
+import { StartDrivePage } from '../pages/start-drive/start-drive';
+import { SignaturePage } from '../pages/signature/signature';
+import { SignaturePadModule } from 'angular2-signaturepad';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+	SignaturePage,
+	StartDrivePage,
+	DashboardPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+	HttpModule,
+	SignaturePadModule,
+	HttpClientModule,
+	IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+	DashboardPage,
+	SignaturePage,
+	StartDrivePage,
     HomePage
   ],
   providers: [
